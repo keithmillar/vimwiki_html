@@ -1,0 +1,156 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>RVM create gemset per project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+[Source](<a href="https://coderwall.com/p/bvkgtw/easy-way-to-create-gemset-per-project-using-rvm">https://coderwall.com/p/bvkgtw/easy-way-to-create-gemset-per-project-using-rvm</a> "Permalink to Easy way to create gemset per project using RVM (Example)")
+</p>
+
+<ol>
+<li>
+Easy way to create gemset per project using RVM (Example)
+
+</ol>
+
+<p>
+Assuming that you are already on your project directory.  
+Now run these commands from your CLI.
+</p>
+    
+    
+<ul>
+<li>
+Step 1: rvm gemset create [name of gemset]  
+
+<li>
+Step 2: rvm --rvmrc [ruby version here]@[name of gemset]  
+
+<li>
+# Note: You can check your current ruby version by running "ruby -v" from your console.
+
+<li>
+Step 3: Refresh your directory. 
+
+<li>
+# You can simply do this by checking out of your directory and going back to that directory again.
+
+<li>
+Step 4: RVM will ask you a simple Yes, No, View, Cancel question. Press Y for yes.
+
+<li>
+Step 5: You're done! Run bundle install.
+
+</ul>
+
+<p>
+Live example:
+</p>
+
+<p>
+Current directory: Projects/DumbProject |   
+Current ruby version: ruby-1.9.3-p327
+</p>
+    
+    
+<ul>
+<li>
+$ rvm gemset create dumb  
+<br />    gemset created dumb   =&gt; /Users/awesomeness/.rvm/gems/ruby-1.9.3-p327@dumb  
+
+<li>
+$ rvm --rvmrc ruby-1.9.3-p327@dumb  
+
+<li>
+$ cd..  
+
+<li>
+$ cd DumbProject  
+
+<li>
+Do you wish to trust '/Users/awesomeness/Projects/DumbProject/.rvmrc'?  
+
+<li>
+Choose v[iew] below to view the contents
+
+<li>
+y[es], n[o], v[iew], c[ancel]&gt; y
+
+<li>
+$ y
+
+<li>
+$ bundle install
+
+</ul>
+
+<p>
+Note: rvm gemset empty - will only delete gemsets from current project while in that directory
+</p>
+
+<p>
+Note: In this case, i always put .rvmrc file in my global .gitignore file so I don't need to bother every project I fork with pull requests. You can look at this reference on how to set up your global gitignore: &lt;<a href="https://help.github.com/articles/ignoring-files&gt;">https://help.github.com/articles/ignoring-files&gt;</a>
+</p>
+
+<p>
+*<span id="-Cleaning Up"></span><strong id="Cleaning Up">Cleaning Up</strong>*
+</p>
+
+<p>
+### remove all old versions of the gem
+gem cleanup rjb
+</p>
+
+<p>
+### choose which ones you want to remove
+gem uninstall rjb
+</p>
+
+<p>
+### remove version 1.1.9 only
+gem uninstall rjb --version 1.1.9
+</p>
+
+<p>
+### remove all versions less than 1.3.4
+gem uninstall rjb --version '&lt;1.3.4'
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Handbrake</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<div id="Handbrake"><h4 id="Handbrake">Handbrake</h4></div>
+
+<p>
+Tutorial on how Rip / Copy DVDs in Ubuntu using HandBrake.
+HandBrake is a very fast multithreaded cross•platform Transcoder available for
+Linux, Mac and Windows.
+Its primary purpose isn‘t to Rip DVDs. Its one of the best Transcoders available
+that just happens to be able to copy encrypted DVDs (as long as you have
+decrypting software such as libdvdcss2 installed).
+</p>
+
+<p>
+Installation instructions for libdvdcss2 are detailed below.
+</p>
+
+<p>
+Ubuntu 10.04, 10.10, 11.04:
+sudo apt•get install ubuntu-restricted-extras libdvdread4
+sudo /usr/share/doc/libdvdread4/install-css.sh
+</p>
+
+<p>
+   Windows
+Software that can play DVDs rely on dll files to tell it how to read the
+encrypted disc for playback. In most free software, a common dll file called
+libdvdcss is used. By using libdvdcss combined with HandBrake, we will be able
+to decrypt our DVDs while we transcode, without any additional software.
+and copy the libdvdcss•2.dll file to the HankBrake installation folder Rename
+the file to libdvdcss.dll and restart HandBrake
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

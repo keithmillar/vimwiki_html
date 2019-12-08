@@ -1,0 +1,156 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Kernel Upgrade</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+---
+date: 2012-01-18
+layout: post
+title: "Kernel Upgrade"
+category: tech 
+tags:
+</p>
+<ul>
+<li>
+linux
+
+<li>
+gentoo
+
+</ul>
+<p>
+---
+</p>
+
+<p>
+emerge -P gentoo-sources to remove oldest kernel before installing latest
+kernel
+</p>
+
+<p>
+In most cases, temporary files used during compilation will still remain under
+the appropriate source directory under &lt;span style="color:
+red;"&gt;/usr/src&lt;/span&gt;. It is safe to remove these using rm.
+</p>
+
+<p>
+You can also safely delete any modules that were used by this kernel. This can
+be done by removing the appropriate directories under &lt;span style="color:
+red;"&gt;/lib/modules/&lt;/span&gt; that relate to the kernel versions you are
+removing. Be careful not to delete modules belonging to kernels that you still
+use!
+</p>
+
+<p>
+Finally, you can mount your /boot partition and remove the bzImage
+file(s) for the kernel(s) you are pruning. You should also edit your boot
+loader configuration so that it no longer references such kernel(s).
+</p>
+
+<p>
+emerge -av gentoo-sources to install latest kernel
+</p>
+
+<p>
+genkernel --menuconfig --bootloader=grub all
+</p>
+
+<p>
+module-rebuild rebuild
+</p>
+
+<p>
+check grub for correct syntax
+</p>
+
+<p>
+Advanced: Using your old kernel .config to configure a new one It is sometimes
+possible to save time by re-using the configuration file from your old kernel
+when configuring the new one. Note that this is generally unsafe -- too many
+changes between every kernel release for this to be a reliable upgrade
+path.
+</p>
+
+<p>
+The only situation where this is appropriate is when upgrading from one Gentoo
+kernel revision to another. For example, the changes made between
+gentoo-sources-2.6.9-r1 and gentoo-sources-2.6.9-r2 will be very small, so it
+is usually OK to use the following method. However, it is not appropriate to
+use it in the example used throughout this document: upgrading from 2.6.8 to
+2.6.9. Too many changes between the official releases, and the method
+described below does not display enough context to the user, often resulting
+in the user running into problems because they disabled options that they
+really did not want to.
+</p>
+
+<p>
+Reusing your old config with genkernel
+</p>
+
+<p>
+cd /etc/kernels
+cp kernel-config-x86-2.6.9-gentoo-r1 kernel-config-x86-2.6.9-gentoo-r2
+genkernel all
+</p>
+
+<p>
+**KERNEL **
+</p>
+
+<p>
+Processor type
+Core 2/newer Xeon
+</p>
+
+<p>
+To enable Freeview in kernel
+Go to:-
+</p>
+
+<p>
+ *DEVICE DRIVERS
+ *MULTIAMEDIA SUPPORT
+ *DVB/ATSC ADAPTERS (NEW)
+ *ENABLE SUPPORT FOR VARIOUS USB DVB DEVICES
+and select required from list.
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

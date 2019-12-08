@@ -1,0 +1,150 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>NetworkManager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+nmcli dev wifi con "Cafe Hotspot 1" password caffeine name "My cafe"
+</p>
+<blockquote>
+creates a new connection named "My cafe" and then connects it to "Cafe Hotspot 1" SSID using "caffeine" password. This is mainly
+useful when connecting to "Cafe Hotspot 1" for the first time. Next time, it is better to use 'nmcli con up id "My cafe"' so that
+the existing connection profile can be used and no additional is created.
+</blockquote>
+
+
+<p>
+EXAMPLES
+</p>
+<blockquote>
+nmcli -t -f RUNNING nm
+</blockquote>
+<blockquote>
+tells you whether NetworkManager is running or not.
+</blockquote>
+<blockquote>
+nmcli -t -f STATE nm
+</blockquote>
+<blockquote>
+shows the overall status of NetworkManager.
+</blockquote>
+<blockquote>
+nmcli radio wifi off
+</blockquote>
+<blockquote>
+switches Wi‐Fi off.
+</blockquote>
+<blockquote>
+nmcli -p con list
+</blockquote>
+<blockquote>
+lists all connections NetworkManager has.
+</blockquote>
+<blockquote>
+nmcli -f name,autoconnect con list
+</blockquote>
+<blockquote>
+lists all connections' names and their autoconnect settings.
+</blockquote>
+<blockquote>
+nmcli con list id "My wired connection"
+</blockquote>
+<blockquote>
+lists all details of the connection with "My wired connection"
+name.
+</blockquote>
+<blockquote>
+nmcli -p con up id "My wired connection" iface eth0
+</blockquote>
+<blockquote>
+activates the connection with name "My wired connection" on
+interface eth0.  The -p option makes nmcli show progress of the
+activation.
+</blockquote>
+<blockquote>
+nmcli con up uuid 6b028a27-6dc9-4411-9886-e9ad1dd43761 ap
+00:3A:98:7C:42:D3
+</blockquote>
+<blockquote>
+connects the Wi‐Fi connection with UUID
+6b028a27-6dc9-4411-9886-e9ad1dd43761 to the AP with BSSID
+00:3A:98:7C:42:D3.
+</blockquote>
+<blockquote>
+nmcli dev status
+</blockquote>
+<blockquote>
+shows the status for all devices.
+</blockquote>
+<blockquote>
+nmcli dev disconnect iface em2
+</blockquote>
+<blockquote>
+disconnects a connection on interface em2 and marks the device
+as unavailable for auto‐connecting. That's why no connection
+will automatically be activated on the device until the device's
+"autoconnect" is set to TRUE or user manually activates a
+connection.
+</blockquote>
+<blockquote>
+nmcli -f GENERAL,WIFI-PROPERTIES dev list iface wlan0
+</blockquote>
+<blockquote>
+lists details for wlan0 interface; only GENERAL and
+</blockquote>
+<blockquote>
+nmcli dev wifi
+</blockquote>
+<blockquote>
+lists available Wi‐Fi access points known to NetworkManager.
+</blockquote>
+<blockquote>
+nmcli dev wifi con "Cafe Hotspot 1" password caffeine name "My cafe"
+</blockquote>
+<blockquote>
+creates a new connection named "My cafe" and then connects it to
+"Cafe Hotspot 1" SSID using "caffeine" password. This is mainly
+useful when connecting to "Cafe Hotspot 1" for the first time.
+Next time, it is better to use 'nmcli con up id "My cafe"' so
+that the existing connection profile can be used and no
+additional is created.
+</blockquote>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

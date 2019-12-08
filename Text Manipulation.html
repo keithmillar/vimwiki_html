@@ -1,0 +1,169 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Text Manipulation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+*<span id="-I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:"></span><strong id="I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:">I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:</strong>*
+ And I'd like to insert author: Flo before the tags:
+</p>
+
+<p>
+ for i in ; do sed -i 's/tags:/author: Flo\ntags:/' "i"; done
+</p>
+
+<p>
+*<span id="-Searches all files in the current directory for &quot;category: linux&quot; which ca be savet to a text file"></span><strong id="Searches all files in the current directory for &quot;category: linux&quot; which ca be savet to a text file">Searches all files in the current directory for "category: linux" which ca be savet to a text file</strong>*
+grep -iRl "category: linux" ./
+</p>
+
+<p>
+*<span id="-The listoffiles from above can be passed to the mv or cp command"></span><strong id="The listoffiles from above can be passed to the mv or cp command">The listoffiles from above can be passed to the mv or cp command</strong>*
+for file in <code>cat listoffiles</code>; do mv "$file" /path/of/destination ; done
+</p>
+
+<p>
+*<span id="-Rename to remove space in file names"></span><strong id="Rename to remove space in file names">Rename to remove space in file names</strong>*
+rename "s/ //g"  or rename "s/-- //g" to fill the spaces with -
+</p>
+
+<p>
+*<span id="-Removes space and insert"></span><strong id="Removes space and insert">Removes space and insert</strong>*
+If you don't have rename or prefer to use just the shell:
+</p>
+
+<p>
+for f in *\ *; do mv "\(f" "\){f// /-}"; done
+</p>
+
+<p>
+Broken down:
+</p>
+
+<p>
+ *\ * selects all files with a space in their name as input for the the for loop.
+ The quotes around "$f" are important because we know there's a space in the filename and otherwise it would appear as 2+ arguments to mv.
+ ${f//str/new_str} is a bash-specific string substitution feature. All instances of str are replaced with new_str.
+</p>
+
+<p>
+ <span id="-Removes ctl-m"></span><strong id="Removes ctl-m">Removes ctl-m</strong>
+To get the ^M character, type Control-v and hit Enter
+:%s/\r//g
+or
+%s///gc
+</p>
+
+<p>
+*<span id="-Removes spaces in file names and replaces them with"></span><strong id="Removes spaces in file names and replaces them with">Removes spaces in file names and replaces them with</strong>*
+</p>
+
+<p>
+for file in *; do mv "\(file" <code>echo \)file | sed -e 's/  */-/g' -e 's/_-_/-/g'</code>; done
+or
+find . -depth -name '* *' | while IFS= read -r f ; do mv -i "\(f" "\)(dirname "\(f")/\)(basename "$f"|tr ' ' _)" ; done
+---
+date: 2013-07-29
+layout: post
+title: "Find and Replace"
+description: ""
+category: tech
+tags:
+</p>
+<ul>
+<li>
+linux
+
+</ul>
+<p>
+---
+</p>
+
+<p>
+{% highlight bash %}
+find . -name '*.html' | xargs perl -pi -e 's/oldtext/newtext/g'
+{% endhighlight %}
+</p>
+
+<p>
+\n adds a new line
+</p>
+
+<p>
+ finds  any text and replaces it with &lt;!--start excerpt--&gt;
+</p>
+
+<p>
+{% highlight bash %}
+find . -name '*.md' | xargs perl -pi -e 's/any text/&lt;!--start excerpt--&gt; /g'
+{% endhighlight %}
+finds any text and replaces it with a new line and <img src="../wiki/ more " />  (\n being new line)
+</p>
+
+<p>
+{% highlight bash %}
+find . -name '*.md' | xargs perl -pi -e 's/any text/\n<img src="../wiki/ more " /> /g'
+{% endhighlight %}
+</p>
+
+<p>
+{% highlight bash %}
+find . -type f -print0 | xargs -0 sed -i /KeyWord/d
+{% endhighlight %}
+*<span id="-Deletes line containing KEYWORD"></span><strong id="Deletes line containing KEYWORD">Deletes line containing KEYWORD</strong>*
+</p>
+
+<p>
+First command find finds all the standard files (not directories, or pipes, or etc.), prints them separated by \0 (so filenames can contains spaces, newlines, etc.).
+</p>
+
+<p>
+Second command xargs reads the output of find, grabs a list based on a separator (\0 because of -0), invokes sed -i [...] with added parameters from the list (sed will be called multiple times if there are a lot of files, as the maximum length of the parameters is limited in each invocation).
+</p>
+
+<p>
+The sed command modifies in-place (-i).
+</p>
+
+<p>
+As to /KeyWord/d, it'll delete lines containing the regular expression KeyWord
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

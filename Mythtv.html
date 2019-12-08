@@ -1,0 +1,77 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Mythtv</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+*<span id="-Logging"></span><strong id="Logging">Logging</strong>*
+There is /etc/conf.d/mythfrontend on Gentoo, which sets the syslog
+parameter. And one for backend.
+MYTHBACKEND_OPTS="--nologserver"
+</p>
+
+<p>
+*<span id="-Database"></span><strong id="Database">Database</strong>*
+To delete unwanted hosts fro mythconverg data base
+</p>
+
+<p>
+mysql&gt; SELECT DISTINCT <code>hostname</code> FROM <code>settings</code>;
+</p>
+
+<p>
+will show you the various hostnames/identifiers with settings.
+</p>
+
+<p>
+mysql&gt; DELETE FROM <code>settings</code> WHERE <code>hostname</code> = 'identifier';
+</p>
+
+<p>
+will delete all settings for the machine using the chosen identifier.
+</p>
+
+
+<p>
+*<span id="-To update videos from the cli"></span><strong id="To update videos from the cli">To update videos from the cli</strong>*
+mythutil --scanvideos
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

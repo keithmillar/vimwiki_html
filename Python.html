@@ -1,0 +1,86 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Python</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+Messages for package dev-python/setuptools-1.1.6:
+</p>
+
+<ul>
+<li>
+It seems that you need to set USE_PYTHON to make sure that legacy
+
+<li>
+packages will be built with respect to PYTHON_TARGETS correctly:
+
+</ul>
+
+<ul>
+<li>
+     USE_PYTHON='2.7 3.2 3.3'
+
+</ul>
+
+<ul>
+<li>
+Please note that after changing the USE_PYTHON variable, you may need
+
+<li>
+to run 'python-updater' to rebuild affected packages.
+
+</ul>
+
+<ul>
+<li>
+For more information on PYTHON_TARGETS and python.eclass
+
+<li>
+compatibility, please see the relevant Wiki article [1].
+
+</ul>
+
+<ul>
+<li>
+<a href="https://wiki.gentoo.org/wiki/Project:Python/PYTHON_TARGETS">https://wiki.gentoo.org/wiki/Project:Python/PYTHON_TARGETS</a>
+
+</ul>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

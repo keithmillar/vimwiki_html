@@ -1,0 +1,62 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Remove spaces in file names</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+Removes space and insert -
+If you don't have rename or prefer to use just the shell:
+</p>
+
+<p>
+for f in *\ *; do mv "\(f" "\){f// /-}"; done
+</p>
+
+<p>
+Broken down:
+</p>
+
+<p>
+ *\ * selects all files with a space in their name as input for the the for loop.
+ The quotes around "$f" are important because we know there's a space in the filename and otherwise it would appear as 2+ arguments to mv.
+ ${f//str/new_str} is a bash-specific string substitution feature. All instances of str are replaced with new_str.
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

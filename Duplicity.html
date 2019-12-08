@@ -1,0 +1,229 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Duplicity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+This will list all files in the backup\home directory
+duplicity --no-encryption list-current-files <a href="ftp://ben@192.168.0.19/backup/home">ftp://ben@192.168.0.19/backup/home</a>
+</p>
+
+<p>
+This will find a specific file in the backup\home directory
+duplicity --no-encryption list-current-files <a href="ftp://ben@192.168.0.19/backup/home">ftp://ben@192.168.0.19/backup/home</a> | grep .abook/addressbook
+</p>
+
+<p>
+This will restore addressbook file to the MEGA directory
+duplicity --no-encryption --file-to-restore ben/.abook/addressbook <a href="ftp://ben@192.168.0.19/backup/home/">ftp://ben@192.168.0.19/backup/home/</a> ~/MEGA/addressbook
+</p>
+
+<p>
+Duplicity is now run from the duplicity-backup directory, it is call by kzone-backup.sh which runs either a full backup or an incremental backup.
+</p>
+
+<p>
+If this is successful the remove the original backup dir backup-jobs
+</p>
+
+
+
+<p>
+## duplicity-backup.sh
+</p>
+
+<p>
+Run an incremental backup:
+</p>
+
+<ol>
+<li>
+duplicity-backup.sh [-c config_file] --backup
+
+</ol>
+
+<p>
+Force a one-off full backup:
+</p>
+
+<ol>
+<li>
+duplicity-backup.sh [-c config_file] --full
+
+</ol>
+
+<ol>
+<li>
+Restore your entire backup:
+
+</ol>
+
+<ol>
+<li>
+You will be prompted for a restore directory
+
+<li>
+duplicity-backup.sh [-c config_file] --restore
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+# You can also provide a restore folder on the command line.
+
+<li>
+duplicity-backup.sh [-c config_file] --restore /home/user/restore-folder
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+Restore a specific file or directory in the backup:
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+Note that the commands --restore-file and --restore-dir are equivalent.
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+# You will be prompted for a file to restore to the current directory
+
+<li>
+duplicity-backup.sh [-c config_file] --restore-file
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+# Restores the file img/mom.jpg to the current directory
+
+<li>
+duplicity-backup.sh [-c config_file] --restore-file img/mom.jpg
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+# Restores the file img/mom.jpg to /home/user/i-love-mom.jpg
+
+<li>
+duplicity-backup.sh [-c config_file] --restore-file img/mom.jpg /home/user/i-love-mom.jpg
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+# Restores the directory rel/dir/path to /target/restorepath
+
+<li>
+duplicity-backup.sh [-c config_file] --restore-dir rel/dir/path /target/restorepath
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+List files in the remote archive
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+duplicity-backup.sh [-c config_file] --list-current-files
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+See the collection status (i.e. all the backup sets in the remore archive)
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+duplicity-backup.sh [-c config_file] --collection-status
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+Verify the backup
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+duplicity-backup.sh [-c config_file] --verify
+
+</ol>
+<p>
+#
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

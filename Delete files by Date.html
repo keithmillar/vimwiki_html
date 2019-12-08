@@ -1,0 +1,84 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Delete files by Date</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+Sometimes you want to remove old files on a server, like old log files or temporary files created ages ago, that are no longer relevant. Here's a quick command that lets you do that.
+</p>
+
+<p>
+But first, let's play safe and show you a command to view the files older than X days, so you can review the list first before you launch the delete-command.
+</p>
+
+<p>
+$ find . -mtime +180 -print
+</p>
+
+<p>
+To break it down: we use find in the current directory (the dot .) and list all files with a modification date that's older than 180 days. After that, we print the files to stdout with the -print command (which, technically, is obsolete -- you can omit that parameter and it'll still work, but it makes for a clearer example).
+</p>
+
+<p>
+To pass an other directory, simply replace the dot:
+</p>
+
+<p>
+$ find /to/your/directory -mtime +180 -print
+</p>
+
+<p>
+Now, to actually delete the files older than X days, you can use any of these variants. Be careful though, there's no trashbin or confirmation in this case, once you copy/paste this, it'll delete everything in your current working directory older than 180 days. ;-)
+</p>
+
+<p>
+$ find . -mtime +180 -delete;
+$ find . -mtime +180 -exec rm -f {} \;
+</p>
+
+<p>
+As before, the -mtime parameter is used to find files older than X. In this case, it's older than 180 days. You can either use the -delete parameter to immediately let find delete the files, or you can let any arbitrary command be executed (-exec) on the found files.
+</p>
+
+<p>
+The latter is slightly more complex, but offers more flexibility if want to copy them to a temp directory instead of deleting. In that case, you can swap out the rm with an mv.
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

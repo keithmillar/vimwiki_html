@@ -1,0 +1,127 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>rsync backup media</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+To copy a directory from one directory to another, they command line would be:
+</p>
+
+<p>
+rsync -options --otherOptions sourceDir targetDir
+</p>
+
+<p>
+Example 1: rsync -vaz ~/jump/Music/ ~/Media/Music
+</p>
+
+<p>
+This example copies the contents of the /jump/Music/ directory to the /media/Music
+directory.
+</p>
+
+<p>
+Take Note of the ending back slash.
+</p>
+
+
+<p>
+This command can be used to synchronize a folder, and also resume copying when it's aborted half way. The command to copy one disk is:
+</p>
+
+<p>
+rsync -avxHAX --progress / /new-disk/
+</p>
+
+<p>
+The options are:
+</p>
+<pre>
+-a  : all files, with permissions, etc..  
+-v  : verbose, mention files  
+-x  : stay on one file system  
+-H  : preserve hard links (not included with -a)  
+-A  : preserve ACLs/permissions (not included with -a)  
+-X  : preserve extended attributes (not included with -a)  
+</pre>
+<p>
+To improve the copy speed, add -W (--whole-file), to avoid calculating deltas/diffs of the files. This is the default when both the source and destination are specified as local paths, since the real benefit of rsync's delta-transfer algorithm is reducing network usage.
+</p>
+
+<p>
+Also consider adding --numeric-ids to avoid mapping uid/gid values by user/group name.
+</p>
+
+<p>
+Compare the size of two directories.
+diff &lt;(du -sh dir1) &lt;(du -sh dir2)
+</p>
+
+<p>
+Copying kzone os to new drive 
+</p>
+
+<p>
+rsync -gloptrv --exclude={/dev/<span id="-,/proc/"></span><strong id=",/proc/">,/proc/</strong>,/sys/<span id="-,/tmp/"></span><strong id=",/tmp/">,/tmp/</strong>,/run/<span id="-,/mnt/"></span><strong id=",/mnt/">,/mnt/</strong>,/media/<span id="-,/Downloads/"></span><strong id=",/Downloads/">,/Downloads/</strong>,/Dropbox/<span id="-,radio/"></span><strong id=",radio/">,radio/</strong>,/podcasts/<span id="-,/jump/"></span><strong id=",/jump/">,/jump/</strong>,/skip/*,/lost+found} /mnt/gentoo/ /jump/HD-KZONE/
+</p>
+
+<p>
+rsync -gloptrunc \(srcdir \)dstdir
+A brief guide:
+</p>
+<blockquote>
+g - preserve group ownership info
+l - copy symlinks as symlinks
+o - preserve owner info
+p - preserve permissions
+t - preserve timestamps
+r - recurse thru directories
+u - update, skip any newer files
+[n] - no, dont do this, do a dry run instead
+c - checksum, attempt checksums on file blocks when possible (*)
+note: on local filesystems, this get overridden and entire files are copied instead.
+v - verbose
+</blockquote>
+
+<p>
+I always run the above to make sure it works, then remove the 'n' flag that once I'm happy with the results
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

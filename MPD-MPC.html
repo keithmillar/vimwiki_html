@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>MPD-MPC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+<span id="-MPC"></span><strong id="MPC">MPC</strong>
+add &lt;file&gt;  
+</p>
+<blockquote>
+Adds a song from the music database to the playlist. Can also read input from pipes. Use "mpc ls | mpc add" to add all files to the playlist.
+</blockquote>
+
+<p>
+MPD
+sudo -u mpd alsamixer -D equal
+</p>
+
+<p>
+cd to /var/lib/mpd/music/  
+then create a symbolic link to the media  
+ln -s /media/A6AE-CAD9/ A6AE-CAD9  
+and run mpc update  
+</p>
+
+<p>
+More notes in wallabag  
+[How to power a music server with Armbian](<a href="https://app.wallabag.it/view/8472240)">https://app.wallabag.it/view/8472240)</a>  
+[Auto-Mounting USB](<a href="https://app.wallabag.it/view/8652211)">https://app.wallabag.it/view/8652211)</a>  
+</p>
+
+<p>
+*<span id="-Pi will not boot if dics not present"></span><strong id="Pi will not boot if dics not present">Pi will not boot if dics not present</strong>*
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

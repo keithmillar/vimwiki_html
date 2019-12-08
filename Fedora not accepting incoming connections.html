@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Fedora not accepting incoming connections</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+
+<p>
+If you are using RHEL/CentOS 7 (the OP was not, but I thought I'd share the solution for my case), then you will need to use firewalld instead of the iptables service mentioned in other answers.
+</p>
+
+<p>
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
+</p>
+
+<p>
+And then check that it is running with:
+</p>
+
+<p>
+firewall-cmd --permanent --zone=public --list-all
+</p>
+
+<p>
+It should list 80/tcp under ports
+</p>
+
+</body>
+</html>

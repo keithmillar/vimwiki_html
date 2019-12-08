@@ -1,0 +1,154 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Jekyll</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+
+<p>
+#### Using a data file ####
+</p>
+
+<p>
+This reads from reading.csv and inserts it in to post
+&lt;ul&gt;
+{% for reading in site.data.reading %}
+  &lt;li&gt;
+</p>
+<blockquote>
+<img src="../wiki/ reading.title " /> By <img src="../wiki/ reading.author " /> Finished <img src="../wiki/ reading.date-read " />
+</blockquote>
+<p>
+&lt;/a&gt;
+  &lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+</p>
+
+<p>
+This loop loops through a data file called <code>reading</code>
+</p>
+<ul>
+<li>
+ and sorts it by the front matter variable <code>date</code> and than filters
+
+<li>
+ the collection with <code>reverse</code> in reverse order
+
+</ul>
+<p>
+*
+</p>
+<ul>
+<li>
+ To make it work you first have to assign the data to a new string
+
+<li>
+ called <code>sorted</code>.
+
+</ul>
+<p>
+&lt;ul&gt;
+</p>
+<blockquote>
+{% assign sorted = (site.data.reading | sort: 'date-read') | reverse %}
+{% for item in sorted %}
+&lt;li&gt;<img src="../wiki/ item.title " /> By <img src="../wiki/ item.author " /> Finished <img src="../wiki/ item.date-read " />&lt;/li&gt;
+{% endfor %}
+</blockquote>
+<p>
+&lt;/ul&gt;
+</p>
+
+<p>
+This take a data file called reading.csv assign it to groups and the groups it by author and pipes it to name and then sorts by name.
+{% assign groups = site.data.reading | group_by: "author" | sort: "name" %}
+{% for group in groups %}
+&lt;h3&gt; <img src="../wiki/ group.name " />&lt;/h3&gt;
+</p>
+<blockquote>
+{% for item in group.items %}
+&lt;ul&gt;
+&lt;li&gt;<img src="../wiki/item.title" />&lt;/li&gt;
+</blockquote>
+<p>
+&lt;/ul&gt;
+</p>
+<blockquote>
+{%endfor%}
+{%endfor%}
+</blockquote>
+
+<p>
+{% comment %}
+This gets data from the reading.csv file and list it by field name (title,author,date-read)
+{% for reading in site.data.reading %}
+&lt;ul&gt;
+&lt;li&gt;&lt;src href="_data"&gt;<img src="../wiki/reading.title " />&lt;/li&gt;
+<img src="../wiki/ reading.by " /> <img src="../wiki/ reading.author " /><br />
+<img src="../wiki/ reading.date-read " />
+&lt;/ul&gt;
+{% endfor %}
+{% endcomment %}
+</p>
+
+<div id="Image captions"><h4 id="Image captions">Image captions</h4></div>
+
+<p>
+For image captions, I settled on a beautifully simple solution posted by Andrew Wei on Stack Overflow:
+</p>
+
+<p>
+![](path_to_image)
+<span id="Image captions-image_caption"></span><strong id="image_caption">image_caption</strong>
+</p>
+
+<p>
+This takes advantage of the fact that you can create CSS for combinations of HTML elements. In this case, I can use
+</p>
+
+<p>
+img + em { display: block; text-align: center;}
+</p>
+
+<p>
+to target the <span id="Image captions-image_caption"></span><strong id="image_caption">image_caption</strong> text only and center it under images, which are also centered on this site by default. It works perfectly, and this isn't even Jekyll-specific. Anyone publishing in Markdown could do this.
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

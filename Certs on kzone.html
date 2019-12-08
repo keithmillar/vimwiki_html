@@ -1,0 +1,87 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Certs on kzone</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+I do not have a root password for many of the servers I interact with so I can not SSH directly in as the root user. Also, the ssh daemons are wisely configured with ‘PermitRootLogin’ set to ‘no’ so a password would be moot anyway. I do have sudo permissions on the servers so I can connect under my username and sudo the privileged commands as needed. Glazed-eye screen-staring started when I needed to rsync a remote directory that was read-only for root. How do I get rsync to run under sudo on the remote server? I did some searching and here are some options I found.
+</p>
+
+<p>
+Option 1. Set NOPASSWD in the /etc/sudoers file.
+crashingdaily ALL= NOPASSWD:/usr/bin/rsync
+</p>
+
+<p>
+Then use the --rsync-path option to specify the sudo wrapper.
+rsync -a -e "ssh" --rsync-path="sudo rsync" crashingdaily@server.remotehost.com:/u02/data_pump_dir/ /archive
+</p>
+
+<p>
+rsync -avzP --delete -e ssh --rsync-path="sudo rsync" source_directory user@server_IP:path_destination_directory
+</p>
+
+<p>
+Source <a href="https://crashingdaily.wordpress.com/2007/06/29/rsync-and-sudo-over-ssh/">https://crashingdaily.wordpress.com/2007/06/29/rsync-and-sudo-over-ssh/</a>
+</p>
+
+<p>
+cert for keithnflo.homelinux.com needed to be added twice
+</p>
+
+<p>
+#### Instructions ####
+</p>
+
+<p>
+This run on a Gentoo VM on Venus
+</p>
+
+<p>
+Router ports need to be opened for this IP address
+</p>
+
+<div id="Cert renewal on kzone"><h4 id="Cert renewal on kzone" class="header"><a href="#Cert renewal on kzone">Cert renewal on kzone</a></h4></div>
+
+<p>
+certbot renew --apache --dry-run  (if this works then run without --dry-run)
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

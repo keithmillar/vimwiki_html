@@ -1,0 +1,156 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Reading Search Queries</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<div id="What I track about my reading"><h5 id="What I track about my reading">What I track about my reading</h5></div>
+
+<p>
+I used to capture all kinds of information about what I read, but I found that I almost never used it. I used to categorize and classify the books, and break them into fiction and nonfiction, and the gender of the author. But I never used it. So I simplified things in the text file. Today, I capture just a few pieces of information:
+</p>
+
+<ul>
+<li>
+ Title
+
+<li>
+ Author
+
+<li>
+ Date completed
+
+</ul>
+
+<p>
+I have a few symbols I use after the title which indicate information useful to me:
+</p>
+
+<ul>
+<li>
+= a book I really liked, and would recommend.
+<br />    @ = audiobook
+<br />    + = e-book
+<br />    ^ = a repeated reading (that is, I have read the book more than once).
+
+</ul>
+
+<p>
+This turns out to be enough information, and to satisfy most of the questions I have about my reading list and reading habits.
+</p>
+
+<p>
+<span id="What I track about my reading-All of the books I’ve read in 2014"></span><strong id="All of the books I’ve read in 2014">All of the books I’ve read in 2014</strong>
+</p>
+
+<p>
+At the command line, I simply type:
+</p>
+
+<p>
+grep 2014 reading.txt
+</p>
+
+<p>
+<span id="What I track about my reading-The number of books I read in 2014"></span><strong id="The number of books I read in 2014">The number of books I read in 2014</strong>
+</p>
+
+<p>
+Ah, but what if I want to know the number of books I read without needed to see the full list? I can type,
+grep 2014 reading.txt | wc -l
+The wc -l at the end filters the output through the word count (wc) command and gets the number of lines in the results. Since I have one line per book the resulting number is the number of books in the query:
+</p>
+
+<p>
+<span id="What I track about my reading-How many Stephen King books have I read?"></span><strong id="How many Stephen King books have I read?">How many Stephen King books have I read?</strong>
+</p>
+
+<p>
+Regular readers know that I am a big fan of Stephen King. So how many times have I read Stephen King?
+</p>
+
+<p>
+grep "Stephen King" reading.txt | wc -l
+</p>
+
+<p>
+<span id="What I track about my reading-How many Stephen King books have I read more than once?"></span><strong id="How many Stephen King books have I read more than once?">How many Stephen King books have I read more than once?</strong>
+</p>
+
+<p>
+This one is only slightly more complicated. To get the answer, I run this command:
+</p>
+
+<p>
+grep "Stephen King" reading.txt | grep -F ^ | wc -l
+</p>
+
+<p>
+Which basically says, “Search for the term ‘Stephen King’ in reading.txt, and then take the results and search for the ^ symbol, which is my designator for a re-read, and finally count the resulting lines.
+</p>
+
+<p>
+The number of times I’ve re-read Stephen King books is 16.
+</p>
+
+<p>
+To see the actual books I’ve re-read, I can just leave off the final line count search, and do this:
+</p>
+
+<p>
+grep "Stephen King" reading.txt | grep -F ^
+</p>
+
+<p>
+<span id="What I track about my reading-When was the last time I read an Isaac Asimov book?"></span><strong id="When was the last time I read an Isaac Asimov book?">When was the last time I read an Isaac Asimov book?</strong>
+</p>
+
+<p>
+For that I can use the UNIX tail command:
+</p>
+
+<p>
+grep "Isaac Asimov" reading.txt | tail -n1
+</p>
+
+<p>
+This simply returns all of the lines from my reading list that match “Isaac Asimov” and then looks at just the last line in the results (that’s what the tail -n1 does). The last time I finished an Isaac Asimov book was on April 24, 2012. You can also see what the book was
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

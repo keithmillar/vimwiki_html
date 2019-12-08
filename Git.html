@@ -1,0 +1,116 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Git</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+=== Delete a Git submodule ==
+</p>
+
+<p>
+git submodule deinit &lt;asubmodule&gt;
+git rm &lt;asubmodule&gt;
+</p>
+<ol>
+<li>
+Note: asubmodule (no trailing slash)
+
+<li>
+or, if you want to leave it in your working tree
+
+</ol>
+<p>
+git rm --cached &lt;asubmodule&gt;
+rm -rf .git/modules/&lt;asubmodule&gt;
+</p>
+
+<p>
+=== Increase upload file size ==
+</p>
+
+<p>
+git config --global http.postBuffer 157286400
+</p>
+
+<p>
+=== how to delete all commit history in github ==
+</p>
+
+<p>
+Deleting the .git folder may cause problems in your git repository. If you want to delete all your commit history but keep the code in its current state, it is very safe to do it as in the following:
+</p>
+<blockquote>
+Checkout
+</blockquote>
+<blockquote>
+git checkout --orphan latest_branch
+</blockquote>
+<blockquote>
+Add all the files
+</blockquote>
+<blockquote>
+git add -A
+</blockquote>
+<blockquote>
+Commit the changes
+</blockquote>
+<blockquote>
+git commit -am "commit message"
+</blockquote>
+<blockquote>
+Delete the branch
+</blockquote>
+<blockquote>
+git branch -D master
+</blockquote>
+<blockquote>
+Rename the current branch to master
+</blockquote>
+<blockquote>
+git branch -m master
+</blockquote>
+<blockquote>
+Finally, force update your repository
+</blockquote>
+<blockquote>
+git push -f origin master
+</blockquote>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

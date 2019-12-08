@@ -1,0 +1,80 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Mutt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+*<span id="-Save message text to a text file"></span><strong id="Save message text to a text file">Save message text to a text file</strong>*
+</p>
+
+<p>
+The mutt command pipe-message (default shortcut |) can be used for this. It opens a command line and you write cat &gt; DESIRED-FILE-PATH
+</p>
+
+<p>
+or press v to view plain text and s to save to a file.
+</p>
+
+<p>
+*<span id="-Deleting Messages"></span><strong id="Deleting Messages">Deleting Messages</strong>*
+</p>
+
+<p>
+Change to mailbox then shift+D type search pattern then shift+$ to update mailbox
+</p>
+
+
+<p>
+*<span id="-Mutt Marking all New messages for deletion and clears all flags"></span><strong id="Mutt Marking all New messages for deletion and clears all flags">Mutt Marking all New messages for deletion and clears all flags</strong>*
+</p>
+
+<p>
+It first selects all messages marked “New” and untags them. Then, it selects all messages marked “Old” but unread and untags them as well. Finally, it marks them all as deleted
+</p>
+
+<p>
+macro index &lt;esc&gt;m "T~N&lt;enter&gt;;WNT~O&lt;enter&gt;;WO\CT&lt;enter&gt;&lt;tag-prefix&gt;d" "mark all messages read"
+</p>
+
+<p>
+&lt;tag-prefix&gt; = ; 
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

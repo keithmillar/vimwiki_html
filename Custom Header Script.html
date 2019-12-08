@@ -1,0 +1,111 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Custom Header Script</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+How to Create Custom Bash Script Header Template File
+</p>
+
+<p>
+First start by creating the template file called sh_header.temp, which contains your custom bash script header, possibly under ~/.vim/ directory under your home
+</p>
+
+<p>
+Next add the following lines in it (feel free to set your own template file location and custom header) and save the file.
+</p>
+
+<p>
+#!/bin/bash
+{{
+###################################################################
+</p>
+
+<p>
+#Script Name	:
+</p>
+
+<p>
+#Description	:
+</p>
+
+<p>
+#Args           	:
+</p>
+
+<p>
+#Author       	:Aaron Kili Kisinga
+</p>
+
+<p>
+#Email         	:aaronkilik@gmail.com
+###################################################################
+}}
+</p>
+
+<p>
+Now open your vim initialization file ~/.vimrc for editing and add the following line to it.
+</p>
+
+<p>
+au bufnewfile *.sh 0r /home/ben/.vim/sh_header.temp
+</p>
+
+<p>
+Where:
+</p>
+
+<ul>
+<li>
+   au – means autocmd
+
+<li>
+   bufnewfile – event for opening a file that doesn’t exist for editing.
+
+<li>
+   *.sh – consider all files with .sh extension.
+
+</ul>
+
+<p>
+So the above line instructs vi/vim editor to read the contents of the template file (/home/aaronkilik/.vim/sh_header.temp) and insert it into every new .sh file opened by a user
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

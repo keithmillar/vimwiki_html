@@ -1,0 +1,111 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Kernel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+** Needs changing before new kernel written in spain 2017-07-08 **
+Messages for package sys-fs/udev-233:
+</p>
+<ul>
+<li>
+CONFIG_FW_LOADER_USER_HELPER:should not be set. But it is.
+
+<li>
+Please check to make sure these options are set correctly.
+
+</ul>
+
+
+<p>
+remove support for 64-bit kernel
+</p>
+
+<p>
+A preallocated buffer-size of 2048 (kB) or higher is recommended for the HD-audio driver!
+CONFIG_SND_HDA_PREALLOC_SIZE=64
+</p>
+
+<p>
+CONFIG_SND_DYNAMIC_MINORS=y
+</p>
+
+<p>
+CONFIG_FHANDLE
+</p>
+
+
+<p>
+2014-11-07-udev-upgrade
+  Title                     Upgrade to udev &gt;= 217 or eudev &gt;= 2.1
+  Author                    Samuli Suominen &lt;ssuominen@gentoo.org&gt;
+  Posted                    2014-11-07
+  Revision                  1
+</p>
+
+<p>
+sys-fs/udev-217 and sys-fs/eudev-2.1 no longer provide a userspace
+firmware loader. If you require firmware loading support, you must use
+kernel 3.7 or greater with CONFIG_FW_LOADER_USER_HELPER=n. No action is
+required if none of your kernel modules need firmware. See [1] for more
+information on the upgrade.
+</p>
+
+<p>
+[1] <a href="https://wiki.gentoo.org/wiki/Udev/upgrade#udev_216_to_217">https://wiki.gentoo.org/wiki/Udev/upgrade#udev_216_to_217</a>
+</p>
+
+
+<p>
+Hauppauge WinTV-NOVA-T usb2 DVB-T USB2.0 support (NEW)
+</p>
+
+<p>
+.config:31:warning: symbol value 'm' invalid for X86_INTEL_PSTATE
+*.config:2289:warning: override: FB_MB862XX_LIME changes choice state
+*.config:2710:warning: symbol value 'm' invalid for AB3100_CORE
+*.config:2719:warning: symbol value 'm' invalid for MFD_WM8400
+*.config:2720:warning: symbol value 'm' invalid for MFD_WM8350_I2C
+*.config:2721:warning: symbol value 'm' invalid for MFD_WM8350
+*.config:2722:warning: symbol value 'm' invalid for MFD_WM831X
+*.config:3368:warning: symbol value 'm' invalid for POWER_SUPPLY
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>

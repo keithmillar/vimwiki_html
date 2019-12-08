@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="normalize.css" />
+    <link rel="Stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Wiki Hacks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+<style>
+/* link colors */
+ /* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link
+a:active {
+  color: blue;
+}  */
+</style>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<p>
+*<span id="-To sort Dates run:-"></span><strong id="To sort Dates run:-">To sort Dates run:-</strong>*
+:VimwikiDiaryGenerateLinks
+</p>
+
+<p>
+*<span id="-Diary file for today:-"></span><strong id="Diary file for today:-">Diary file for today:-</strong>*
+:VimwikiMakeDiaryNote
+</p>
+
+<p>
+*<span id="-Diary file for Yesterday:-"></span><strong id="Diary file for Yesterday:-">Diary file for Yesterday:-</strong>*
+:VimwikiMakeYesterdayDiaryNote
+</p>
+
+<p>
+The following css files need to be copied from ~/Dropbox/css to ~/Dropbox/Vim/wiki_html/ normalize.css  skeleton.css  style.css further instructions for creating the default.html template file can be found here [wallabag]( <a href="http://keithnflo.homelinux.com:8001/view/106">http://keithnflo.homelinux.com:8001/view/106</a> )
+</p>
+
+<p>
+The skeleton and style css files have all some personal changes made, at a future date it my be better to combine them.
+</p>
+
+<p>
+*<span id="-Don't use this as it breaks the wiki"></span><strong id="Don't use this as it breaks the wiki">Don't use this as it breaks the wiki</strong>*
+"Set this option to 1 to automatically generate the HTML file when the
+"corresponding wiki page is saved
+let g:vimwiki_list = [{'path': '~/Dropbox/Vim/wiki/', 'auto_export': 1}]
+</p>
+
+<p>
+The Diary page css is a inline style set from Dropbox/Vim/wiki/templates/diary.html and referenced by %template diary
+</p>
+
+<p>
+Leader ws lists all wikis
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>
