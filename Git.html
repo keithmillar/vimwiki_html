@@ -37,9 +37,19 @@ a:active {
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
+<div id="Add a new git repo"><h3 id="Add a new git repo" class="header"><a href="#Add a new git repo">Add a new git repo</a></h3></div>
+
 <p>
-=== Delete a Git submodule ==
+git remote add origin git@github.com:username/new_repo
+$ git push -u origin master
 </p>
+
+<p>
+Actually, the first line of the instructions will say
+$ git remote add origin <a href="https://github.com/username/new_repo">https://github.com/username/new_repo</a>
+</p>
+
+<div id="Delete a Git submodule"><h3 id="Delete a Git submodule" class="header"><a href="#Delete a Git submodule">Delete a Git submodule</a></h3></div>
 
 <p>
 git submodule deinit &lt;asubmodule&gt;
@@ -58,17 +68,13 @@ git rm --cached &lt;asubmodule&gt;
 rm -rf .git/modules/&lt;asubmodule&gt;
 </p>
 
-<p>
-=== Increase upload file size ==
-</p>
+<div id="Increase upload file size"><h3 id="Increase upload file size" class="header"><a href="#Increase upload file size">Increase upload file size</a></h3></div>
 
 <p>
 git config --global http.postBuffer 157286400
 </p>
 
-<p>
-=== how to delete all commit history in github ==
-</p>
+<div id="how to delete all commit history in github"><h3 id="how to delete all commit history in github" class="header"><a href="#how to delete all commit history in github">how to delete all commit history in github</a></h3></div>
 
 <p>
 Deleting the .git folder may cause problems in your git repository. If you want to delete all your commit history but keep the code in its current state, it is very safe to do it as in the following:
