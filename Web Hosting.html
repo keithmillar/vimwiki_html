@@ -37,15 +37,53 @@ a:active {
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
+<div id="Seely Street"><h4 id="Seely Street" class="header"><a href="#Seely Street">Seely Street</a></h4></div>
+
 <p>
-### Seely Street
+<a href="http://seelystreet.com">seelystreet.com</a> Domain is on
+<a href="https://fasthosts.co.uk">fasthosts</a> The DNS records here point to <a href="https://app.netlify.com">Netlify</a> which resolves
+<a href="https://lucid-goldwasser-c97dbd.netlify.com">lucid-goldwasser-c97dbd.netlify.com</a>
+to <a href="https://seelystreet.com">seelystreet.com</a> the github account seelystreet
+has two repos one seelystreet and the other
+<a href="seelystreet.github.io.html">seelystreet.github.io</a> this is a submodule which is
+required for hugo to build and deploy the site. However in this case netlify
+takes care of building and deploying.
 </p>
 
 <p>
-<a href="http://seelystreet.com">seelystreet</a> Domain is on
-<a href="https://fasthosts.co.uk">fasthosts</a> The DNS records point to Netlify which resoloves
-<a href="https://lucid-goldwasser-c97dbd.netlify.com">lucid-goldwasser-c97dbd.netlify.com</a> to
-<a href="https://seelystreet.com">seelystreet.com</a>
+Log into Netlify using github the email for both is computer@fastmail.com
+</p>
+
+<pre>
+DNS records
+
+    fm1._domainkey.seelystreet.com 3600 IN CNAME fm1.seelystreet.com.dkim.fmhosted.com
+
+    fm2._domainkey.seelystreet.com 3600 IN CNAME fm2.seelystreet.com.dkim.fmhosted.com
+
+    fm3._domainkey.seelystreet.com 3600 IN CNAME fm3.seelystreet.com.dkim.fmhosted.com
+
+    seelystreet.com 3600 IN MX 10 in1-smtp.messagingengine.com
+
+    seelystreet.com 3600 IN MX 20 in2-smtp.messagingengine.com
+
+    seelystreet.com 3600 IN NETLIFY lucid-goldwasser-c97dbd.netlify.com
+
+    www.seelystreet.com 3600 IN NETLIFY lucid-goldwasser-c97dbd.netlify.com
+
+    seelystreet.com 3600 IN TXT v=spf1 include:spf.messagingengine.com ?all
+</pre>
+
+<div id="Fastmail"><h4 id="Fastmail" class="header"><a href="#Fastmail">Fastmail</a></h4></div>
+
+<p>
+Fastmail needs the seelystreet.com domain added to the dns section and it
+should pickup the MX records from netlify.
+</p>
+
+<p>
+An Alias needs adding which will be garth@seelystreet.com pointing to
+garth39fastmail.com
 </p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
