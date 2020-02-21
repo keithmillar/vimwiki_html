@@ -3,7 +3,7 @@
     <link rel="Stylesheet" type="text/css" href="normalize.css" />
     <link rel="Stylesheet" type="text/css" href="skeleton.css" />
     <link rel="Stylesheet" type="text/css" href="style.css" />
-    <title>Wifi</title>
+    <title>OpenVPN</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
@@ -37,41 +37,9 @@ a:active {
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
-<div id="To disable/enable wifi"><h4 id="To disable/enable wifi" class="header"><a href="#To disable/enable wifi">To disable/enable wifi</a></h4></div>
-
+<div id="change public ip / domain name"><h4 id="change public ip / domain name" class="header"><a href="#change public ip / domain name">change public ip / domain name</a></h4></div>
 <p>
-sudo iwconfig wlan0 txpower off
-</p>
-
-<p>
-sudo iwconfig wlan0 txpower on
-</p>
-
-<div id="Disable wifi and Bluetooth"><h4 id="Disable wifi and Bluetooth" class="header"><a href="#Disable wifi and Bluetooth">Disable wifi and Bluetooth</a></h4></div>
-
-<p>
-systemctl disable wpa_supplicant
-systemctl disable bluetooth
-systemctl disable hciuart
-</p>
-
-<p>
-Add to /boot/config.txt:
-</p>
-
-<ol>
-<li>
-Disable WiFi and Bluetooth
-
-</ol>
-
-<p>
-dtoverlay=pi3-disable-wifi
-dtoverlay=pi3-disable-bt
-</p>
-
-<p>
-Reboot.
+etc/openvpn/easy-rsa/pki/Default.txt
 </p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>

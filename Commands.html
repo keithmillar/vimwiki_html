@@ -66,6 +66,15 @@ set pastetoggle=/&lt;C-P/&gt; "Ctrl-P toggles paste mode when in Insert"
 <p>
 :set nopaste
 </p>
+
+<div id="Removing lines"><h4 id="Removing lines" class="header"><a href="#Removing lines">Removing lines</a></h4></div>
+<p>
+If something has double linespaced your text then this command will remove the double spacing and merge pre-existing repeating blank lines into a single blank line. It uses a temporary delimiter of ^^^ at the start of a line so if this clashes with your content choose something else. Lines containing only whitespace are treated as blank.
+</p>
+
+<p>
+%s/<sup><small>\s*\n\n\+/</small></sup>^<sup><small>\r/g | g/</small></sup>\s*$/d | %s/^^^^.*
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
