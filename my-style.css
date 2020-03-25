@@ -25,6 +25,11 @@ body {
   margin: 1em 2em 1em 2em;
   font-size: 100%;
   line-height: 130%;
+  background-color: #e1dddd;
+  color: #222;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2, h2, h3, h4, h5, h6 {
@@ -39,6 +44,7 @@ h1 {
   font-weight: bold;
   margin-top: 0.5em;
   margin-bottom: 0.75em;
+  text-align: center;
 }
 
 h1 {font-size: 2.6em; color: #000000;}
