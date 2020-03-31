@@ -88,11 +88,11 @@ linux
 ---
 </p>
 
+
 <p>
-{% highlight bash %}
 find . -name '*.html' | xargs perl -pi -e 's/oldtext/newtext/g'
-{% endhighlight %}
 </p>
+
 
 <p>
 \n adds a new line
@@ -102,23 +102,27 @@ find . -name '*.html' | xargs perl -pi -e 's/oldtext/newtext/g'
  finds  any text and replaces it with &lt;!--start excerpt--&gt;
 </p>
 
+
 <p>
-{% highlight bash %}
 find . -name '*.md' | xargs perl -pi -e 's/any text/&lt;!--start excerpt--&gt; /g'
-{% endhighlight %}
+</p>
+
+<p>
 finds any text and replaces it with a new line and <img src="../wiki/ more " />  (\n being new line)
 </p>
 
+
 <p>
-{% highlight bash %}
 find . -name '*.md' | xargs perl -pi -e 's/any text/\n<img src="../wiki/ more " /> /g'
-{% endhighlight %}
+</p>
+
+
+
+<p>
+find . -type f -print0 | xargs -0 sed -i /KeyWord/d
 </p>
 
 <p>
-{% highlight bash %}
-find . -type f -print0 | xargs -0 sed -i /KeyWord/d
-{% endhighlight %}
 *<span id="-Deletes line containing KEYWORD"></span><strong id="Deletes line containing KEYWORD">Deletes line containing KEYWORD</strong>*
 </p>
 
