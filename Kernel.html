@@ -25,7 +25,6 @@ Please check to make sure these options are set correctly.
 
 </ul>
 
-
 <p>
 remove support for 64-bit kernel
 </p>
@@ -42,7 +41,6 @@ CONFIG_SND_DYNAMIC_MINORS=y
 <p>
 CONFIG_FHANDLE
 </p>
-
 
 <p>
 2014-11-07-udev-upgrade
@@ -80,46 +78,55 @@ Hauppauge WinTV-NOVA-T usb2 DVB-T USB2.0 support (NEW)
 *.config:3368:warning: symbol value 'm' invalid for POWER_SUPPL
 </p>
 
-
 <p>
 Messages for package sys-kernel/genkernel-4.0.1:
 </p>
 
+<ul>
+<li>
+Genkernel v4.x is a new major release which touches
+
+<li>
+nearly everything. Be careful, read updated manpage
+
+<li>
+and pay special attention to program output regarding
+
+<li>
+changed kernel command-line parameters!
+
+</ul>
 <p>
- *
+*
 </p>
 <ul>
 <li>
-* Genkernel v4.x is a new major release which touches
+Default kernel filename was changed from "kernel-genkernel-&lt;ARCH&gt;-&lt;KV&gt;"
 
 <li>
- * nearly everything. Be careful, read updated manpage
+to "vmlinuz-&lt;KV&gt;". Please be aware that due to lexical ordering the
 
 <li>
-  * and pay special attention to program output regarding
+<span id="-default"></span><strong id="default">default</strong> boot entry in your boot manager could still point to last kernel
 
 <li>
-   * changed kernel command-line parameters!
+built with genkernel before that name change, resulting in booting old
 
 <li>
-    *
-
-<li>
-     * Default kernel filename was changed from "kernel-genkernel-&lt;ARCH&gt;-&lt;KV&gt;"
-
-<li>
-      * to "vmlinuz-&lt;KV&gt;". Please be aware that due to lexical ordering the
-
-<li>
-       * <span id="-default"></span><strong id="default">default</strong> boot entry in your boot manager could still point to last kernel
-
-<li>
-        * built with genkernel before that name change, resulting in booting old
-
-<li>
-         * kernel when not paying attention on boot.
+kernel when not paying attention on boot.
 
 </ul>
+
+<div id="Search Menu Config"><h4 id="Search Menu Config" class="header"><a href="#Search Menu Config">Search Menu Config</a></h4></div>
+
+<p>
+/search string
+The neat thing is you don’t have to remember or note the path, as you can just press the number between parenthesis on the left of the option location, in this case (1), and it will take you directly there.
+</p>
+
+<p>
+Read more: <a href="http://www.cnx-software.com/2013/05/23/how-to-find-configuration-options-quickly-in-make-menuconfig/#ixzz3DegzZrjY">http://www.cnx-software.com/2013/05/23/how-to-find-configuration-options-quickly-in-make-menuconfig/#ixzz3DegzZrjY</a>
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>

@@ -12,27 +12,6 @@
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
-
-<div id="To delete unwanted hosts from mythconverge database"><h4 id="To delete unwanted hosts from mythconverge database" class="header"><a href="#To delete unwanted hosts from mythconverge database">To delete unwanted hosts from mythconverge database</a></h4></div>
-
-<p>
-mysql&gt; SELECT DISTINCT <code>hostname</code> FROM <code>settings</code>;
-</p>
-
-<p>
-will show you the various hostnames/identifiers with settings.
-</p>
-
-<p>
-mysql&gt; DELETE FROM <code>settings</code> WHERE <code>hostname</code> = 'identifier';
-</p>
-
-<p>
-will delete all settings for the machine using the chosen identifier.
-</p>
-
-
-
 <div id="Purge mysql-bin log files"><h4 id="Purge mysql-bin log files" class="header"><a href="#Purge mysql-bin log files">Purge mysql-bin log files</a></h4></div>
 
 <p>

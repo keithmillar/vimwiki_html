@@ -12,32 +12,25 @@
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
-<p>
-*<span id="-I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:"></span><strong id="I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:">I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:</strong>*
- And I'd like to insert author: Flo before the tags:
-</p>
+<div id="Search file for text"><h4 id="Search file for text" class="header"><a href="#Search file for text">Search file for text</a></h4></div>
 
 <p>
- for i in ; do sed -i 's/tags:/author: Flo\ntags:/' "i"; done
-</p>
-
-<p>
-*<span id="-Searches all files in the current directory for &quot;category: linux&quot; which ca be savet to a text file"></span><strong id="Searches all files in the current directory for &quot;category: linux&quot; which ca be savet to a text file">Searches all files in the current directory for "category: linux" which ca be savet to a text file</strong>*
+Searches all files in the current directory for "category: linux" which can be saved to a text file  
 grep -iRl "category: linux" ./
 </p>
 
 <p>
-*<span id="-The listoffiles from above can be passed to the mv or cp command"></span><strong id="The listoffiles from above can be passed to the mv or cp command">The listoffiles from above can be passed to the mv or cp command</strong>*
+The listoffiles from above can be passed to the mv or cp command  
 for file in <code>cat listoffiles</code>; do mv "$file" /path/of/destination ; done
 </p>
 
+<div id="Rename to remove space in file names"><h4 id="Rename to remove space in file names" class="header"><a href="#Rename to remove space in file names">Rename to remove space in file names</a></h4></div>
 <p>
-*<span id="-Rename to remove space in file names"></span><strong id="Rename to remove space in file names">Rename to remove space in file names</strong>*
 rename "s/ //g"  or rename "s/-- //g" to fill the spaces with -
 </p>
 
+<div id="Removes space and insert"><h4 id="Removes space and insert" class="header"><a href="#Removes space and insert">Removes space and insert</a></h4></div>
 <p>
-*<span id="-Removes space and insert"></span><strong id="Removes space and insert">Removes space and insert</strong>*
 If you don't have rename or prefer to use just the shell:
 </p>
 
@@ -55,91 +48,34 @@ Broken down:
  ${f//str/new_str} is a bash-specific string substitution feature. All instances of str are replaced with new_str.
 </p>
 
+<div id="Removes ctl-m"><h4 id="Removes ctl-m" class="header"><a href="#Removes ctl-m">Removes ctl-m</a></h4></div>
 <p>
- <span id="-Removes ctl-m"></span><strong id="Removes ctl-m">Removes ctl-m</strong>
 To get the ^M character, type Control-v and hit Enter
 :%s/\r//g
 or
 %s///gc
 </p>
 
+<div id="Adding a line of text to multiple files"><h4 id="Adding a line of text to multiple files" class="header"><a href="#Adding a line of text to multiple files">Adding a line of text to multiple files</a></h4></div>
 <p>
-*<span id="-Removes spaces in file names and replaces them with"></span><strong id="Removes spaces in file names and replaces them with">Removes spaces in file names and replaces them with</strong>*
+I have a bunch of files in a directory, and I need to insert a line of text into each of them. They have essentially the following format:
+</p>
+<pre>
+ ---
+ date: 2011-05-19
+ layout: post
+ title: Preparations
+ category: blog
+ tags:
+  - cycling
+ ---
+</pre>
+<p>
+ And I'd like to insert author: Flo before the tags:
 </p>
 
 <p>
-for file in *; do mv "\(file" <code>echo \)file | sed -e 's/  */-/g' -e 's/_-_/-/g'</code>; done
-or
-find . -depth -name '* *' | while IFS= read -r f ; do mv -i "\(f" "\)(dirname "\(f")/\)(basename "$f"|tr ' ' _)" ; done
----
-date: 2013-07-29
-layout: post
-title: "Find and Replace"
-description: ""
-category: tech
-tags:
-</p>
-<ul>
-<li>
-linux
-
-</ul>
-<p>
----
-</p>
-
-
-<p>
-find . -name '*.html' | xargs perl -pi -e 's/oldtext/newtext/g'
-</p>
-
-
-<p>
-\n adds a new line
-</p>
-
-<p>
- finds  any text and replaces it with &lt;!--start excerpt--&gt;
-</p>
-
-
-<p>
-find . -name '*.md' | xargs perl -pi -e 's/any text/&lt;!--start excerpt--&gt; /g'
-</p>
-
-<p>
-finds any text and replaces it with a new line and <img src="../wiki/ more " />  (\n being new line)
-</p>
-
-
-<p>
-find . -name '*.md' | xargs perl -pi -e 's/any text/\n<img src="../wiki/ more " /> /g'
-</p>
-
-
-
-<p>
-find . -type f -print0 | xargs -0 sed -i /KeyWord/d
-</p>
-
-<p>
-*<span id="-Deletes line containing KEYWORD"></span><strong id="Deletes line containing KEYWORD">Deletes line containing KEYWORD</strong>*
-</p>
-
-<p>
-First command find finds all the standard files (not directories, or pipes, or etc.), prints them separated by \0 (so filenames can contains spaces, newlines, etc.).
-</p>
-
-<p>
-Second command xargs reads the output of find, grabs a list based on a separator (\0 because of -0), invokes sed -i [...] with added parameters from the list (sed will be called multiple times if there are a lot of files, as the maximum length of the parameters is limited in each invocation).
-</p>
-
-<p>
-The sed command modifies in-place (-i).
-</p>
-
-<p>
-As to /KeyWord/d, it'll delete lines containing the regular expression KeyWord
+ for i in ; do sed -i 's/tags:/author: Flo\ntags:/' "i"; done
 </p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>

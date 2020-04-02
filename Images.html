@@ -25,6 +25,29 @@ Also can be used to change from format to another
 <p>
 convert input.png output.jpg
 </p>
+
+<div id="Image captions"><h4 id="Image captions" class="header"><a href="#Image captions">Image captions</a></h4></div>
+
+<p>
+For image captions, I settled on a beautifully simple solution posted by Andrew Wei on Stack Overflow:
+</p>
+
+<p>
+![](path_to_image)
+<span id="Image captions-image_caption"></span><strong id="image_caption">image_caption</strong>
+</p>
+
+<p>
+This takes advantage of the fact that you can create CSS for combinations of HTML elements. In this case, I can use
+</p>
+
+<p>
+img + em { display: block; text-align: center;}
+</p>
+
+<p>
+To target the <span id="Image captions-image_caption"></span><strong id="image_caption">image_caption</strong> text only and center it under images, which are also centered on this site by default. It works perfectly, and this isn't even Jekyll-specific. Anyone publishing in Markdown could do this.
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>

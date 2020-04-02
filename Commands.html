@@ -50,6 +50,34 @@ If something has double linespaced your text then this command will remove the d
 <p>
 %s/<sup><small>\s*\n\n\+/</small></sup>^<sup><small>\r/g | g/</small></sup>\s*$/d | %s/^^^^.*
 </p>
+
+<div id="Printing"><h4 id="Printing" class="header"><a href="#Printing">Printing</a></h4></div>
+
+<p>
+set pdev=printer_name
+</p>
+
+<p>
+HP_Deskjet_930C
+</p>
+
+<p>
+Printing from Vim is not like any other application since it has both console
+(Vim) and desktop (GVim) versions running off the same backend. On Linux, it
+does not show a Print Dialog, where I can pick the printer and other print
+options like number of pages per side, orientation and duplex. So, I print to a
+PDF file, open it in a PDF viewer and print from there.
+</p>
+
+<p>
+To print to a PDF file from Vim:
+	:hardcopy &gt; out.pdf
+</p>
+
+<p>
+	To print to a PS file from Vim:
+	:hardcopy &gt; out.ps
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>

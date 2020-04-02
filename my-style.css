@@ -76,6 +76,9 @@ del {text-decoration: line-through; color: #777777;}
 .tag {background-color: #eeeeee; font-family: monospace; padding: 2px;}
 .header a {text-decoration: none; color: inherit;}
 
+/* styles the date stamp */
+.date-stamp {text-align: right; color: blue;}
+
 /* Link Settings */
 
 /* unvisited link */
