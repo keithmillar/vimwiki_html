@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="my-style.css" />
+    <title>Markdown</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<div id="Convert Markdown to Html"><h4 id="Convert Markdown to Html" class="header"><a href="#Convert Markdown to Html">Convert Markdown to Html</a></h4></div>
+
+
+<p>
+First, we need to <a href="https://daringfireball.net/projects/downloads/Markdown_1.0.1.zip">download Markdown</a> and place it within our runtime folder. On the Mac, you can drag the Markdown.pl file into your usr/local/bin/ folder. And that's it; you're all set! Next, to trigger the markdown-to-html conversion, we need to provide two parameters: the path to the Markdown.pl file, and the command itself.
+</p>
+
+<p>
+Within Vim, the following should do the trick:
+</p>
+
+<ul>
+<li>
+1. :%! /usr/local/bin/Markdown.pl --html4tags
+
+</ul>
+	
+<p>
+This instructs the Markdown.pl file to run on the curent page. But, that's a little too much typing; let's instead save this to our .vimrc file, and assign it to a shortcut.
+</p>
+	
+<ul>
+<li>
+1. ".vimrc file
+
+<li>
+2.
+
+<li>
+3. "Markdown to HTML
+
+<li>
+4. nmap &lt;leader&gt;md :%!/usr/local/bin/Markdown.pl --html4tags &lt;cr&gt;
+
+</ul>
+		
+<p>
+With this line of code, whenever we type - by default - backslash + md, that command will run, thus converting our markdown to clean HTML
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>
