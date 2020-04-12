@@ -12,18 +12,18 @@
     <hr>
     <div class="row">
 	    <div class="one-half column"> <div class="content">
+<div id="To sort Dates run:-"><h4 id="To sort Dates run:-" class="header"><a href="#To sort Dates run:-">To sort Dates run:-</a></h4></div>
 <p>
-*<span id="-To sort Dates run:-"></span><strong id="To sort Dates run:-">To sort Dates run:-</strong>*
 :VimwikiDiaryGenerateLinks
 </p>
 
+<div id="Diary file for today:-"><h4 id="Diary file for today:-" class="header"><a href="#Diary file for today:-">Diary file for today:-</a></h4></div>
 <p>
-*<span id="-Diary file for today:-"></span><strong id="Diary file for today:-">Diary file for today:-</strong>*
 :VimwikiMakeDiaryNote
 </p>
 
+<div id="Diary file for Yesterday:-"><h4 id="Diary file for Yesterday:-" class="header"><a href="#Diary file for Yesterday:-">Diary file for Yesterday:-</a></h4></div>
 <p>
-*<span id="-Diary file for Yesterday:-"></span><strong id="Diary file for Yesterday:-">Diary file for Yesterday:-</strong>*
 :VimwikiMakeYesterdayDiaryNote
 </p>
 
@@ -35,8 +35,8 @@ The following css files need to be copied from ~/Dropbox/css to ~/Dropbox/Vim/wi
 The skeleton and style css files have all some personal changes made, at a future date it my be better to combine them.
 </p>
 
+<div id="Don't use this as it breaks the wiki"><h4 id="Don't use this as it breaks the wiki" class="header"><a href="#Don't use this as it breaks the wiki">Don't use this as it breaks the wiki</a></h4></div>
 <p>
-*<span id="-Don't use this as it breaks the wiki"></span><strong id="Don't use this as it breaks the wiki">Don't use this as it breaks the wiki</strong>*
 "Set this option to 1 to automatically generate the HTML file when the
 "corresponding wiki page is saved
 let g:vimwiki_list = [{'path': '~/Dropbox/Vim/wiki/', 'auto_export': 1}]
@@ -48,6 +48,27 @@ The Diary page css is a inline style set from Dropbox/Vim/wiki/templates/diary.h
 
 <p>
 Leader ws lists all wikis
+</p>
+
+<div id="I’ve recently switch to vim-plug, a lightweight Vim plugin manager."><h4 id="I’ve recently switch to vim-plug, a lightweight Vim plugin manager." class="header"><a href="#I’ve recently switch to vim-plug, a lightweight Vim plugin manager.">I’ve recently switch to vim-plug, a lightweight Vim plugin manager.</a></h4></div>
+
+<p>
+It comes with a little .vimrc snippet which downloads the plugin, but it only works for Unix. I use Vim across all three platforms regularly, so I updated the snippet:
+</p>
+<pre>
+" Download and install vim-plug (cross platform).
+if empty(glob(
+    \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
+  execute '!curl -fLo ' .
+    \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+    \ '/autoload/plug.vim --create-dirs ' .
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+</pre>
+<p>
+The above should work across all three major OSes, since Windows 10 recently received curl support.
+<a href="https://www.rosipov.com/blog/cross-platform-vim-plug-setup">Ruslan Osipov</a>
 </p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
