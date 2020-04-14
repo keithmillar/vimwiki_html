@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="my-style.css" />
+    <title>Caddy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div align="center"><a href="index.html">Index</a> |
+	   <a href="diary/diary.html">Diary</a></div>
+    <hr>
+    <div class="row">
+	    <div class="one-half column"> <div class="content">
+<div id="Caddy Web Server"><h4 id="Caddy Web Server" class="header"><a href="#Caddy Web Server">Caddy Web Server</a></h4></div>
+
+<p>
+After creating a systemd service run the following
+</p>
+
+<p>
+sudo systemctl daemon-reload
+</p>
+
+<p>
+Then these commands as necessary:
+</p>
+<ul>
+<li>
+sudo systemctl enable caddy
+
+<li>
+sudo systemctl start caddy
+
+<li>
+sudo systemctl stop caddy
+
+<li>
+sudo systemctl reload caddy (after a config change saves restarting)
+
+</ul>
+
+<p>
+The Caddyfile is in /etc/caddy
+</p>
+</div></div>
+	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
+		      </div>
+</body>
+</html>
