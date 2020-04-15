@@ -43,6 +43,20 @@ sudo systemctl reload caddy (after a config change saves restarting)
 <p>
 The Caddyfile is in /etc/caddy
 </p>
+
+<div id="php"><h4 id="php" class="header"><a href="#php">php</a></h4></div>
+
+<p>
+sudo systemctl start php-fpm.service
+</p>
+
+<p>
+The Caddyfile needs this line
+</p>
+
+<p>
+php_fastcgi unix//run/php-fpm/www.sock
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
