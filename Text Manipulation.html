@@ -77,6 +77,19 @@ I have a bunch of files in a directory, and I need to insert a line of text into
 <p>
  for i in ; do sed -i 's/tags:/author: Flo\ntags:/' "i"; done
 </p>
+
+<div id="vim add charcter to end of line"><h4 id="vim add charcter to end of line" class="header"><a href="#vim add charcter to end of line" class="justcenter">vim add charcter to end of line</a></h4></div>
+
+<p>
+ :%norm A*
+</p>
+
+<p>
+This is what it means:
+ %       = for every line
+ norm    = type the following commands
+ A*      = append '*' to the end of current line
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
