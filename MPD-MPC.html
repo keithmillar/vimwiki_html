@@ -40,7 +40,32 @@ More notes in wallabag
 
 <p>
 *<span id="-Pi will not boot if dics not present"></span><strong id="Pi will not boot if dics not present">Pi will not boot if dics not present</strong>*
+*<span id="-2021 update"></span><strong id="2021 update">2021 update</strong>*
+install
+sudo apt-get install pulseaudio pulseaudio-equalizer pulseaudio-utils pulsemixer
 </p>
+
+<p>
+edit /etc/pulse/default.pa and uncomment the TCP module and set 127.0.0.1 as an allowed IP address like this:   
+</p>
+<pre>
+### Network access (may be configured with paprefs, so leave this commented  
+### here if you plan to use paprefs)  
+#load-module module-esound-protocol-tcp  
+load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1  
+#load-module module-zeroconf-publish  
+</pre>
+
+<p>
+Next, edit /etc/mpd.conf and add a new pulse output pointing to 127.0.0.1 as a "remote" server:  
+</p>
+<pre>
+audio_output {
+       type		"pulse"
+       name		"Local Music Player Daemon"
+       server		"127.0.0.1"
+}
+</pre>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
