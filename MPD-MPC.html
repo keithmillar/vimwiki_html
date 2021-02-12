@@ -66,6 +66,33 @@ audio_output {
        server		"127.0.0.1"
 }
 </pre>
+
+<p>
+edit .asoundrci (This may not be required)
+</p>
+<pre>
+pcm.!default {
+  type asym
+  playback.pcm {
+    type plug
+    slave.pcm "output"
+  }
+  capture.pcm {
+    type plug
+    slave.pcm "input"
+  }
+}
+
+pcm.output {
+  type hw
+  card 0
+}
+
+ctl.!default {
+  type hw
+  card 0
+}
+</pre>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
