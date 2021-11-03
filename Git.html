@@ -90,6 +90,80 @@ Finally, force update your repository
 <blockquote>
 git push -f origin master
 </blockquote>
+
+<div id="Change git urls"><h3 id="Change git urls" class="header"><a href="#Change git urls">Change git urls</a></h3></div>
+
+<p>
+For Locally Existing Repositories
+</p>
+
+<p>
+If we have the repository already cloned:
+</p>
+
+<p>
+List the Git remote of the repository, git remote -v
+</p>
+
+<p>
+Check whether the URL matches our GitHub host to be used, or else update the remote origin URL.
+</p>
+
+<p>
+git remote set-url origin git@github.com-worker_user1:worker_user1/repo_name.git
+</p>
+
+<p>
+Ensure the string between @ and : matches the Host we have given in the SSH config.
+</p>
+
+<p>
+and for submodules
+</p>
+
+<p>
+In simple terms, you just need to edit the .gitmodules file, then resync and update
+</p>
+
+<p>
+vim .gitmodules
+</p>
+
+<p>
+then resync and update:
+</p>
+
+<p>
+git submodule sync
+git submodule update --init --recursive --remote
+</p>
+
+<div id="Detached HEAD"><h3 id="Detached HEAD" class="header"><a href="#Detached HEAD">Detached HEAD</a></h3></div>
+
+<p>
+It’s very easy to end up here on accident, and be confused about the error message Git is complaining about despite having done nothing wrong. Luckily, it’s incredibly easy to fix:
+</p>
+
+<p>
+If you just checked out a commit, and haven’t touched the repository otherwise (no new commits were made), you can simply move the HEAD back to where it belongs with git checkout:
+</p>
+
+<p>
+git checkout master
+</p>
+
+<p>
+This is basically like running cd on Linux, except Git still associates cached commits and changes with the old HEAD, so you don’t want to checkout if you have commits or changes that would be left hanging.
+</p>
+
+<p>
+If you did have some changes, and want to just throw them away, you can hard reset back to master:
+</p>
+
+<p>
+git reset --hard origin/master
+git clean -d --force
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
