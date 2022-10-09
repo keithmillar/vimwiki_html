@@ -90,6 +90,11 @@ This is what it means:
  norm    = type the following commands
  A*      = append '*' to the end of current line
 </p>
+ 
+<div id="find and replace"><h4 id="find and replace" class="header"><a href="#find and replace" class="justcenter">find and replace</a></h4></div>
+<p>
+ find . -type f -name 'words-to-be-replaced*' | while read FILE ; do newfile="\((echo \){FILE} |sed -e 's/words-to-be-replaced/replacedment-words-here/')" ; mv "\({FILE}" "\){newfile}" ;done
+</p>
 </div></div>
 	    <div class="one-half column"> <div class="content"><!-- left blank to balance page --></div></div>
 		      </div>
